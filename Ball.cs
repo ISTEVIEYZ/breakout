@@ -10,30 +10,21 @@ public class Ball : RigidBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-         screenSize = GetViewport().Size;
-         startPosition = Position;
+        screenSize = GetViewport().Size;
+        startPosition = Position;
     }
 
     public override void _Process(float delta)
     {
-        
+
     }
     public override void _IntegrateForces(Physics2DDirectBodyState state)
     {
-         if (Position.x > screenSize.x || Position.x < 0 || Position.y > screenSize.y + 100)
+        if (Position.x > screenSize.x || Position.x < 0 || Position.y > screenSize.y + 100)
         {
-            Transform2D something = new Transform2D();     
-              
-            something.x.x = startPosition.x;   
-            something.y.y = startPosition.y;  
-
-
-            Mathf.Clamp(state.LinearVelocity.x, 5, 10);
-            Mathf.Clamp(state.LinearVelocity.y, 5, 10);
-
-            state.Transform = something; 
+            state.LinearVelocity = new Vector2(Mathf.Clamp(state.LinearVelocity.x, 5, 10), Mathf.Clamp(state.LinearVelocity.y, 5, 10));
+            state.Transform = new Transform2D(0, startPosition);
         }
 
-        Console.WriteLine(Position.y);
     }
 }

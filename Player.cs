@@ -34,6 +34,5 @@ public class Player : KinematicBody2D
         Rotation = 0f;
         velocity.y = 0f;
         velocity = MoveAndSlide(velocity);
-        
     }
 }

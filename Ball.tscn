@@ -7,14 +7,14 @@
 radius = 44.3612
 
 [node name="Ball" type="RigidBody2D"]
+position = Vector2( 636, 139 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 620.444, 119.803 )
+position = Vector2( 1.44403, 0.803009 )
 scale = Vector2( 1.39569, 1.33482 )
 texture = ExtResource( 1 )
 __meta__ = {
@@ -22,7 +22,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 619.47, 120.777 )
+position = Vector2( 1.46997, 0.777008 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
