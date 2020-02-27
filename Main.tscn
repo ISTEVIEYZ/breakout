@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://hotstuff.jpg" type="Texture" id=2]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Walls.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node2D"]
 
@@ -14,5 +15,12 @@ position = Vector2( 638.32, 363.193 )
 scale = Vector2( 0.662091, 0.666908 )
 z_index = -1
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
+position = Vector2( 627.798, 231.275 )
+speed = 500.0
+
+[node name="Walls" parent="." instance=ExtResource( 4 )]
