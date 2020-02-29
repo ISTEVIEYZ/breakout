@@ -20,9 +20,10 @@ public class Ball : KinematicBody2D
         Player = GetParent().GetNode<KinematicBody2D>("Player");
         screenSize = GetViewport().Size;
         velocity = Vector2.Zero;
-
-        GD.Print(GetParent().GetNode<StaticBody2D>("Brick2").Position);
+        
         Position = Player.Position - new Vector2(0, Player.GetNode<Sprite>("Sprite").Texture.GetWidth());
+        
+
     }
 
     public override void _PhysicsProcess(float delta)

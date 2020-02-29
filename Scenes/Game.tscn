@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/hotstuff.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Walls.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Brick.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 
@@ -22,9 +21,3 @@ texture = ExtResource( 2 )
 position = Vector2( 627.798, 231.275 )
 
 [node name="Walls" parent="." instance=ExtResource( 4 )]
-
-[node name="Brick" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1074.22, 371.496 )
-
-[node name="Brick2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 207.714, 183.309 )
