@@ -53,10 +53,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ball.cs" />
-    <Compile Include="Brick.cs" />
-    <Compile Include="icon.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Source\Ball\Ball.cs" />
+    <Compile Include="Source\Brick\Brick.cs" />
+    <Compile Include="Source\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
