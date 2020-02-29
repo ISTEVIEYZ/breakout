@@ -1,28 +1,27 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Ball.cs" type="Script" id=2]
+[ext_resource path="res://Brick.cs" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 44.3612
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 33.3301, 31.5036 )
 
-[node name="Ball" type="KinematicBody2D"]
-position = Vector2( 636, 139 )
+[node name="Brick" type="StaticBody2D"]
+position = Vector2( 1075.07, 215.745 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1.44403, 0.803009 )
-scale = Vector2( 1.39569, 1.33482 )
+position = Vector2( -0.321472, 0.903412 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.46997, 0.777008 )
+position = Vector2( -1.50732, 1.50732 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
