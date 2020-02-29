@@ -51,7 +51,7 @@ public class Ball : KinematicBody2D
         {
             velocity = new Vector2(0, speed).Rotated(Rotation);
             isReset = false;
-            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
+            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", false);
         }
     }
 
