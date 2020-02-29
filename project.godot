@@ -16,7 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Breakout"
-run/main_scene="res://Scenes/Game.tscn"
+run/main_scene="res://Source/Game/Game.tscn"
+boot_splash/bg_color=Color( 0.0431373, 0.0156863, 0.105882, 1 )
 config/icon="res://Assets/icon.png"
 
 [display]
@@ -37,4 +38,5 @@ click={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0431373, 0.0156863, 0.105882, 1 )
 environment/default_environment="res://default_env.tres"

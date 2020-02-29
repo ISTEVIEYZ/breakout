@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pokeman.png-be60b712eb933062440e2f9a504847b3.stex"
+path="res://.import/pokeman.png-1c386068421724bbb39954530f74b760.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheets/pokeman.png"
-dest_files=[ "res://.import/pokeman.png-be60b712eb933062440e2f9a504847b3.stex" ]
+source_file="res://Assets/Spritesheets/pokeman.png"
+dest_files=[ "res://.import/pokeman.png-1c386068421724bbb39954530f74b760.stex" ]
 
 [params]
 

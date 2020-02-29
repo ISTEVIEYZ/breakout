@@ -20,10 +20,8 @@ public class Ball : KinematicBody2D
         Player = GetParent().GetNode<KinematicBody2D>("Player");
         screenSize = GetViewport().Size;
         velocity = Vector2.Zero;
-        
-        Position = Player.Position - new Vector2(0, Player.GetNode<Sprite>("Sprite").Texture.GetWidth());
-        
 
+        Position = Player.Position - new Vector2(0, Player.GetNode<Sprite>("Sprite").Texture.GetWidth());
     }
 
     public override void _PhysicsProcess(float delta)
@@ -40,19 +38,11 @@ public class Ball : KinematicBody2D
             velocity = velocity.Bounce(collision.Normal);
         }
 
-        if (Position.x > screenSize.x || Position.x < 0 || Position.y > screenSize.y + 100)
-        {
-            velocity = Vector2.Zero;
-            isReset = true;
-
-        }
-
         if (isReset)
         {
-            GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
+            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
             Position = Player.Position - new Vector2(0, Player.GetNode<Sprite>("Sprite").Texture.GetWidth());
         }
-
     }
 
     public override void _Process(float delta)
@@ -61,7 +51,13 @@ public class Ball : KinematicBody2D
         {
             velocity = new Vector2(0, speed).Rotated(Rotation);
             isReset = false;
-            GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
         }
+    }
+
+    public void OnScreenExited()
+    {
+        velocity = Vector2.Zero;
+        isReset = true;
     }
 }

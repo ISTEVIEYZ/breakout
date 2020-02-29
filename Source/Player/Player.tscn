@@ -7,13 +7,21 @@
 extents = Vector2( 30.7862, 31.46 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 1.85065, 716.189 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.149353, -1.85062 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.908325, -0.399902 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

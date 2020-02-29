@@ -5,13 +5,7 @@ public class Player : KinematicBody2D
 {
     public Vector2 velocity = new Vector2();
 
-    
     [Export] public int speed = 2000;
-
-    public override void _Ready()
-    {
-
-    }
 
     public void GetInput()
     {
@@ -27,7 +21,10 @@ public class Player : KinematicBody2D
         float width = GetNode<Sprite>("Sprite").Texture.GetSize().x;
         float height = GetNode<Sprite>("Sprite").Texture.GetSize().y;
 
-        Position = new Vector2(x: Mathf.Clamp(Position.x, width / 2,  _screenSize.x - width), Mathf.Clamp(Position.y, _screenSize.y - (height / 2), _screenSize.y - (height / 2)));
+        Position = new Vector2(
+            x: Mathf.Clamp(Position.x, width / 2,  _screenSize.x - width),
+            y: Mathf.Clamp(Position.y, _screenSize.y - (height / 2), _screenSize.y - (height / 2))
+        );
     }
 
     public override void _PhysicsProcess(float delta)
@@ -37,6 +34,4 @@ public class Player : KinematicBody2D
         velocity.y = 0f;
         velocity = MoveAndSlide(velocity);
     }
-
-    
 }
