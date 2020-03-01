@@ -6,9 +6,7 @@ public class Ball : RigidBody2D
     [Export] public float speed = 800;
 
     private Vector2 screenSize;
-
     private KinematicBody2D player;
-
     private bool isReset = true;
 
     // Called when the node enters the scene tree for the first time.
@@ -17,7 +15,7 @@ public class Ball : RigidBody2D
         player = GetParent().GetNode<KinematicBody2D>("Player");
         screenSize = GetViewport().Size;
         LinearVelocity = new Vector2(0, speed);
-        Position = GetPlayerPosition();
+        Position = GetStartPosition();
     }
 
     public override void _Process(float delta)
@@ -35,7 +33,7 @@ public class Ball : RigidBody2D
         // Check if in reset state so we can disable physics
         if (isReset)
         {
-            Position = GetPlayerPosition();
+            Position = GetStartPosition();
             GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
         }
 
@@ -53,7 +51,7 @@ public class Ball : RigidBody2D
         isReset = true;
     }
 
-    private Vector2 GetPlayerPosition()
+    private Vector2 GetStartPosition()
     {
         return player.Position - new Vector2(0, player.GetNode<Sprite>("Sprite").RegionRect.Size.y + 10);
     }

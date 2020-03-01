@@ -103,6 +103,7 @@ contact_monitor = true
 linear_damp = 0.0
 angular_damp = 0.0
 script = ExtResource( 2 )
+speed = 800.0
 
 [node name="BallAnimation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
