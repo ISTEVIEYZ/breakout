@@ -26,3 +26,4 @@ texture = ExtResource( 2 )
 position = Vector2( 640, 648 )
 
 [node name="Walls" parent="." instance=ExtResource( 4 )]
+[connection signal="AddPowerUp" from="." to="Player" method="AddPowerUp"]

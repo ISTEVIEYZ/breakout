@@ -60,6 +60,8 @@
     <Compile Include="Source\Brick\Brick.cs" />
     <Compile Include="Source\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Powerups\ExtraBall.cs" />
+    <Compile Include="Source\Powerups\Powerup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

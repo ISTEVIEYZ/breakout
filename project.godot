@@ -41,6 +41,11 @@ ui_esc={
  ]
 }
 
+[layer_names]
+
+2d_render/layer_1="default"
+2d_render/layer_2="power_ups"
+
 [rendering]
 
 environment/default_clear_color=Color( 0.0431373, 0.0156863, 0.105882, 1 )

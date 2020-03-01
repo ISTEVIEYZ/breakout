@@ -22,4 +22,9 @@ public class Player : KinematicBody2D
             y: Mathf.Clamp(Position.y, (screenSize.y - yOffset), (screenSize.y - yOffset))
         );
     }
+
+    public void AddPowerUp(Powerup powerup)
+    {
+        GD.Print("asdasd");
+    }
 }
