@@ -14,16 +14,16 @@ public class Player : KinematicBody2D
         LookAt(GetGlobalMousePosition());
         velocity = new Vector2();
 
-        velocity = (new Vector2(1f, 0).Rotated(Rotation));
+        velocity = new Vector2(1f, 0).Rotated(Rotation);
 
         velocity = velocity.Normalized() * speed;
 
-        float width = GetNode<Sprite>("Sprite").Texture.GetSize().x;
-        float height = GetNode<Sprite>("Sprite").Texture.GetSize().y;
+        float width = GetNode<Sprite>("Sprite").RegionRect.Size.x;
+        float height = GetNode<Sprite>("Sprite").RegionRect.Size.y;
 
         Position = new Vector2(
             x: Mathf.Clamp(Position.x, width / 2,  _screenSize.x - width),
-            y: Mathf.Clamp(Position.y, _screenSize.y - (height / 2), _screenSize.y - (height / 2))
+            y: Mathf.Clamp(Position.y, _screenSize.y - 100, _screenSize.y - 100)
         );
     }
 
