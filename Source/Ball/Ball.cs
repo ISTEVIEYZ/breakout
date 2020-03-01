@@ -1,63 +1,60 @@
 using Godot;
 using System;
 
-public class Ball : KinematicBody2D
+public class Ball : RigidBody2D
 {
-    // Declare member variables here. Examples:
-    Vector2 screenSize;
+    [Export] public float speed = 800;
 
-    KinematicBody2D Player;
+    private Vector2 screenSize;
+
+    private KinematicBody2D player;
 
     private bool isReset = true;
-
-    [Export] float speed = 300;
-
-    Vector2 velocity = new Vector2();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        Player = GetParent().GetNode<KinematicBody2D>("Player");
+        player = GetParent().GetNode<KinematicBody2D>("Player");
         screenSize = GetViewport().Size;
-        velocity = Vector2.Zero;
-
-        Position = Player.Position - new Vector2(0, Player.GetNode<Sprite>("Sprite").RegionRect.Size.y);
-    }
-
-    public override void _PhysicsProcess(float delta)
-    {
-        var collision = MoveAndCollide(velocity * delta);
-
-        if (collision != null)
-        {
-            if (collision.Collider is Brick)
-            {
-                collision.Collider.EmitSignal("Hit");
-            }
-
-            velocity = velocity.Bounce(collision.Normal);
-        }
-
-        if (isReset)
-        {
-            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
-            Position = Player.Position - new Vector2(0, Player.GetNode<Sprite>("Sprite").RegionRect.Size.y + 10);
-        }
+        LinearVelocity = new Vector2(0, speed);
+        Position = GetPlayerPosition();
     }
 
     public override void _Process(float delta)
     {
+        // Check collisions
+        var collisionBodies = GetCollidingBodies();
+        foreach (Node2D body in collisionBodies)
+        {
+            if (body is Brick)
+            {
+                body.EmitSignal("Hit");
+            }
+        }
+
+        // Check if in reset state so we can disable physics
+        if (isReset)
+        {
+            Position = GetPlayerPosition();
+            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
+        }
+
+        // Check if left click was pressed when in reset set to enable physics
         if (Input.IsActionPressed("click") && isReset)
         {
-            velocity = new Vector2(0, speed).Rotated(Rotation);
             isReset = false;
+            LinearVelocity = new Vector2(0, speed);
             GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", false);
         }
     }
 
     public void OnScreenExited()
     {
-        velocity = Vector2.Zero;
         isReset = true;
+    }
+
+    private Vector2 GetPlayerPosition()
+    {
+        return player.Position - new Vector2(0, player.GetNode<Sprite>("Sprite").RegionRect.Size.y + 10);
     }
 }

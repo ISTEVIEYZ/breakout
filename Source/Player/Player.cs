@@ -3,35 +3,23 @@ using System;
 
 public class Player : KinematicBody2D
 {
-    public Vector2 velocity = new Vector2();
+    private Vector2 screenSize;
+    private float xOffset = 10f;
+    private float yOffset = 100f;
 
-    [Export] public int speed = 2000;
-
-    public void GetInput()
+    public override void _Ready()
     {
-        Vector2 _screenSize = GetViewport().Size;
-
-        LookAt(GetGlobalMousePosition());
-        velocity = new Vector2();
-
-        velocity = new Vector2(1f, 0).Rotated(Rotation);
-
-        velocity = velocity.Normalized() * speed;
-
-        float width = GetNode<Sprite>("Sprite").RegionRect.Size.x;
-        float height = GetNode<Sprite>("Sprite").RegionRect.Size.y;
-
-        Position = new Vector2(
-            x: Mathf.Clamp(Position.x, width / 2,  _screenSize.x - width),
-            y: Mathf.Clamp(Position.y, _screenSize.y - 100, _screenSize.y - 100)
-        );
+        screenSize = GetViewport().Size;
     }
 
-    public override void _PhysicsProcess(float delta)
+    public override void _Process(float delta)
     {
-        GetInput();
-        Rotation = 0f;
-        velocity.y = 0f;
-        velocity = MoveAndSlide(velocity);
+        float mouseX = GetGlobalMousePosition().x;
+        Vector2 spriteSize = GetNode<Sprite>("Sprite").RegionRect.Size;
+
+        Position = new Vector2(
+            x: Mathf.Clamp(mouseX, (spriteSize.x - xOffset), (screenSize.x - spriteSize.x + xOffset)),
+            y: Mathf.Clamp(Position.y, (screenSize.y - yOffset), (screenSize.y - yOffset))
+        );
     }
 }
