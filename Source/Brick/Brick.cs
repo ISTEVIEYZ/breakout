@@ -5,7 +5,7 @@ public class Brick : StaticBody2D
 {
     [Signal] public delegate void Hit();
 
-    public void OnBrickHit()
+    public bool HasPowerUp()
     {
         var powerups = GetChildren();
         var powerupFound = false;
@@ -22,7 +22,12 @@ public class Brick : StaticBody2D
             }
         }
 
-        if (!powerupFound)
+        return powerupFound;
+    } 
+
+    public virtual void OnBrickHit()
+    {
+        if (!this.HasPowerUp())
         {
             QueueFree();
         }

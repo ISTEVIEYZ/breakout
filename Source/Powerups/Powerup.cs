@@ -2,7 +2,6 @@ using Godot;
 
 public abstract class Powerup : RigidBody2D
 {
-    protected Node2D Parent { get; private set; }
 
     protected Vector2 screenSize;
     protected bool isDropped = false;
@@ -14,9 +13,8 @@ public abstract class Powerup : RigidBody2D
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
     }
 
-    public void DropPowerup(Node2D node)
+    public void DropPowerup(Node2D parentBrick)
     {
-        this.Parent = node;
         this.Show();
         ApplyCentralImpulse(new Vector2(0, 200));
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", false);
@@ -32,7 +30,7 @@ public abstract class Powerup : RigidBody2D
             {
                 if (node is Player || Position.y > screenSize.y)
                 {
-                    EmitSignal(nameof("AddPowerUp"), this);
+                    //EmitSignal(nameof("AddPowerUp"), this);
                     GetParent().QueueFree();
                 }
             }

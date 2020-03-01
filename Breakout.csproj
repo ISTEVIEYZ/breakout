@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Ball\BallAnimation.cs" />
+    <Compile Include="Source\Brick\Types\BrickBomb.cs" />
+    <Compile Include="Source\Brick\Types\BrickTwoHit.cs" />
     <Compile Include="Source\Game\Game.cs" />
     <Compile Include="Source\Levels\Level1\Level1BGAnimation.cs" />
     <Compile Include="Source\Ball\Ball.cs" />
