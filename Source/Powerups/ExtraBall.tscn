@@ -9,6 +9,8 @@ extents = Vector2( 16, 16 )
 [node name="ExtraBall" type="RigidBody2D"]
 collision_layer = 2
 gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true

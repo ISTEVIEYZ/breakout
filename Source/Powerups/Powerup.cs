@@ -13,7 +13,7 @@ public abstract class Powerup : RigidBody2D
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
     }
 
-    public void DropPowerup(Node2D parentBrick)
+    public void DropPowerup()
     {
         this.Show();
         ApplyCentralImpulse(new Vector2(0, 200));
@@ -31,7 +31,7 @@ public abstract class Powerup : RigidBody2D
                 if (node is Player || Position.y > screenSize.y)
                 {
                     //EmitSignal(nameof("AddPowerUp"), this);
-                    GetParent().QueueFree();
+                    QueueFree();
                 }
             }
         }

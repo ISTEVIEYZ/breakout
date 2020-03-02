@@ -16,7 +16,6 @@ __meta__ = {
 position = Vector2( 640, 688 )
 
 [node name="hotstuff" type="Sprite" parent="."]
-visible = false
 position = Vector2( 640, 360 )
 scale = Vector2( 0.670508, 0.672269 )
 z_index = -1
