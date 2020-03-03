@@ -375,7 +375,6 @@ __meta__ = {
 [node name="Game" parent="." instance=ExtResource( 2 )]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 638.463, 358.095 )
 scale = Vector2( 11.265, 6.31722 )
 z_index = -1
@@ -405,3 +404,5 @@ position = Vector2( 456, 176 )
 position = Vector2( 712, 176 )
 
 [node name="BrickMoveHorizontal" parent="BrickGroup/BrickBase3" instance=ExtResource( 7 )]
+
+[node name="ExtraBall" parent="BrickGroup/BrickBase3" instance=ExtResource( 5 )]

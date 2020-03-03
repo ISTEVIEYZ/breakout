@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Brick : StaticBody2D
+public class Brick : KinematicBody2D
 {
     [Signal] public delegate void Hit();
 

@@ -6,6 +6,8 @@ public abstract class Powerup : RigidBody2D
     protected Vector2 screenSize;
     protected bool isDropped = false;
 
+    public abstract void OnPowerUp();
+
     public override void _Ready()
     {
         this.Hide();
@@ -15,6 +17,19 @@ public abstract class Powerup : RigidBody2D
 
     public void DropPowerup()
     {
+        var children = GetParent().GetChildren();
+
+        foreach (Node2D child in children)
+        {
+            if (child is Brick)
+            {
+                // Don't remove, magic logic
+                GD.Print(GlobalPosition);
+                GlobalPosition = child.GlobalPosition;
+                break;
+            }
+        }
+
         this.Show();
         ApplyCentralImpulse(new Vector2(0, 200));
         GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", false);
@@ -36,8 +51,6 @@ public abstract class Powerup : RigidBody2D
             }
         }
     }
-
-    public abstract void OnPowerUp();
 
     public override string ToString()
     {

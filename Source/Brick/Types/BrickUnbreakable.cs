@@ -3,10 +3,6 @@ using System;
 
 public class BrickUnbreakable : Brick
 {
-
-    public override void OnBrickHit()
-    {
-
-    }
+    public override void OnBrickHit() { }
 }
 

@@ -16,6 +16,7 @@ public class Ball : RigidBody2D
         screenSize = GetViewport().Size;
         LinearVelocity = new Vector2(0, speed);
         Position = GetStartPosition();
+        isReset = ((Game)GetParent()).BallCount <= 1;
     }
 
     public override void _Process(float delta)

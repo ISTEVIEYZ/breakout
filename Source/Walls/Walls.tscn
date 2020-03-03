@@ -10,6 +10,8 @@ extents = Vector2( 318.262, 10 )
 extents = Vector2( 320.957, 9.46191 )
 
 [node name="Walls" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 15
 __meta__ = {
 "_edit_lock_": true
 }
