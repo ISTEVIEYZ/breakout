@@ -3,7 +3,7 @@
 ### Collision layers and mask
 
 | Scene    | Layer  | Mask    |
-|----------|:-------|:--------|
+|:---------|:-------|:--------|
 | Player   | 1      | 2, 3, 4 |
 | Ball     | 3      | 1, 4    |
 | Bricks   | 4      | 3, 4    |
