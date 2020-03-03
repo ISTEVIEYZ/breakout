@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Source\Ball\BallAnimation.cs" />
     <Compile Include="Source\Brick\Types\BrickBomb.cs" />
+    <Compile Include="Source\Brick\Types\BrickMoveHorizontal.cs" />
     <Compile Include="Source\Brick\Types\BrickTwoHit.cs" />
     <Compile Include="Source\Brick\Types\BrickUnbreakable.cs" />
     <Compile Include="Source\Game\Game.cs" />

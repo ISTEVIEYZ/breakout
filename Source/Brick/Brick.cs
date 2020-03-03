@@ -22,7 +22,7 @@ public class Brick : StaticBody2D
         }
 
         return powerupFound;
-    } 
+    }
 
     public virtual void OnBrickHit()
     {

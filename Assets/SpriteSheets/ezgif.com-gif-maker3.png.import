@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ezgif.com-gif-maker3.png-ea7c1b8c39a9d1d5057ead68d2c27bcb.stex"
+path="res://.import/ezgif.com-gif-maker3.png-f1f1cad3efd6825a5cb3e380958ccb22.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheets/ezgif.com-gif-maker3.png"
-dest_files=[ "res://.import/ezgif.com-gif-maker3.png-ea7c1b8c39a9d1d5057ead68d2c27bcb.stex" ]
+source_file="res://Assets/Spritesheets/ezgif.com-gif-maker3.png"
+dest_files=[ "res://.import/ezgif.com-gif-maker3.png-f1f1cad3efd6825a5cb3e380958ccb22.stex" ]
 
 [params]
 

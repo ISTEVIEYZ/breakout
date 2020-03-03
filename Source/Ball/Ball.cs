@@ -6,7 +6,6 @@ public class Ball : RigidBody2D
     [Export] public float speed = 800;
 
     private Vector2 screenSize;
-
     private KinematicBody2D player;
     private bool isReset = true;
 
@@ -41,13 +40,14 @@ public class Ball : RigidBody2D
         if (Input.IsActionPressed("click") && isReset)
         {
             isReset = false;
-            LinearVelocity =  new Vector2(0, speed);
+            LinearVelocity = new Vector2(0, speed);
         }
     }
 
     public void OnScreenExited()
     {
-        isReset = true;
+        QueueFree();
+        ((Game)GetParent()).BallCount--;
     }
 
     private Vector2 GetStartPosition()
