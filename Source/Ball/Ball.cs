@@ -6,6 +6,7 @@ public class Ball : RigidBody2D
     [Export] public float speed = 800;
 
     private Vector2 screenSize;
+
     private KinematicBody2D player;
     private bool isReset = true;
 
@@ -34,15 +35,13 @@ public class Ball : RigidBody2D
         if (isReset)
         {
             Position = GetStartPosition();
-            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", true);
         }
 
         // Check if left click was pressed when in reset set to enable physics
         if (Input.IsActionPressed("click") && isReset)
         {
             isReset = false;
-            LinearVelocity = new Vector2(0, speed);
-            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("Disabled", false);
+            LinearVelocity =  new Vector2(0, speed);
         }
     }
 

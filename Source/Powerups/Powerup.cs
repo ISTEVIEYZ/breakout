@@ -30,11 +30,17 @@ public abstract class Powerup : RigidBody2D
             {
                 if (node is Player || Position.y > screenSize.y)
                 {
-                    //EmitSignal(nameof("AddPowerUp"), this);
-                    QueueFree();
+                    GetNode<Node>("/root/GlobalSignals").EmitSignal("AddPowerUp", this);
                 }
             }
         }
+    }
+
+    public abstract void OnPowerUp();
+
+    public override string ToString()
+    {
+        return this.GetType().Name;
     }
 }
 

@@ -15,9 +15,8 @@ public class Brick : StaticBody2D
             if (node is Powerup)
             {
                 powerupFound = true;
-                GetNode<Sprite>("Sprite").Visible = false;
-                GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
                 ((Powerup)node).DropPowerup();
+                QueueFree();
                 break;
             }
         }

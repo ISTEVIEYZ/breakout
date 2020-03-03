@@ -10,6 +10,7 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         screenSize = GetViewport().Size;
+        GetNode<Node>("/root/GlobalSignals").Connect("AddPowerUp", this, "AddPowerUp");
     }
 
     public override void _Process(float delta)
@@ -25,6 +26,6 @@ public class Player : KinematicBody2D
 
     public void AddPowerUp(Powerup powerup)
     {
-        GD.Print("asdasd");
+        powerup.OnPowerUp();
     }
 }
