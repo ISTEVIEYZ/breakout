@@ -12,6 +12,7 @@ public class Ball : RigidBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        Connect("body_entered", this, "OnBodyEntered");
         player = GetParent().GetNode<KinematicBody2D>("Player");
         screenSize = GetViewport().Size;
         LinearVelocity = new Vector2(0, speed);
@@ -21,28 +22,6 @@ public class Ball : RigidBody2D
 
     public override void _Process(float delta)
     {
-        // Check collisions
-        var collisionBodies = GetCollidingBodies();
-        foreach (Node2D body in collisionBodies)
-        {
-            if (body is Brick)
-            {
-                body.EmitSignal("Hit");
-            }
-
-            if (body is Player) {
-
-                // TODO: Touch this up
-                var paddleLength = body.GetNode<Sprite>("Sprite").RegionRect.Size.x;
-                var ballX = Position.x;
-                var playerX = body.Position.x;
-                var offsetX = ballX - playerX;
-                var ratio = offsetX / paddleLength;
-
-                LinearVelocity = new Vector2(LinearVelocity.y * ratio * -1, LinearVelocity.y);
-            }
-        }
-
         // Check if in reset state so we can disable physics
         if (isReset)
         {
@@ -61,6 +40,26 @@ public class Ball : RigidBody2D
     {
         QueueFree();
         ((Game)GetParent()).BallCount--;
+    }
+
+    public void OnBodyEntered(Node2D node)
+    {
+        if (node is Brick)
+        {
+            node.EmitSignal("Hit");
+        }
+
+        if (node is Player) {
+
+            // TODO: Touch this up
+            var paddleLength = node.GetNode<Sprite>("Sprite").RegionRect.Size.x;
+            var ballX = Position.x;
+            var playerX = node.Position.x;
+            var offsetX = ballX - playerX;
+            var ratio = offsetX / paddleLength;
+
+            LinearVelocity = new Vector2(LinearVelocity.y * ratio * -1, LinearVelocity.y).Normalized() * speed;
+        }
     }
 
     private Vector2 GetStartPosition()
