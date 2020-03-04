@@ -28,7 +28,7 @@ public class Game : Node2D
     private void CreateNewBall()
     {
         BallCount = 1;
-        var scene = ResourceLoader.Load("res://Source/Ball/Ball.tscn") as PackedScene;
+        var scene = ResourceLoader.Load("res://Source/Ball/BallNormal.tscn") as PackedScene;
         this.CallDeferred("add_child", new object[] { scene.Instance() });
     }
 }

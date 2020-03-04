@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Breakout.png-ddb685b69f3c43a47cb9e4f6e6aaf482.stex"
+path="res://.import/Breakout.png-646861a5ae9f45d4eb68d6b59f7b6d31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Spritesheets/Breakout.png"
-dest_files=[ "res://.import/Breakout.png-ddb685b69f3c43a47cb9e4f6e6aaf482.stex" ]
+source_file="res://Assets/SpriteSheets/Breakout.png"
+dest_files=[ "res://.import/Breakout.png-646861a5ae9f45d4eb68d6b59f7b6d31.stex" ]
 
 [params]
 

@@ -5,7 +5,7 @@ public class ExtraBall : Powerup
 {
     public override void OnPowerUp()
     {
-        var scene = ResourceLoader.Load("res://Source/Ball/Ball.tscn") as PackedScene;
+        var scene = ResourceLoader.Load("res://Source/Ball/BallNormal.tscn") as PackedScene;
         var level = GetTree().CurrentScene.Name;
         var gameNode = GetNode<Node2D>("/root/" + level + "/Game") as Game;
 
