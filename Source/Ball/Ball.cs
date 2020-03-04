@@ -29,6 +29,18 @@ public class Ball : RigidBody2D
             {
                 body.EmitSignal("Hit");
             }
+
+            if (body is Player) {
+
+                // TODO: Touch this up
+                var paddleLength = body.GetNode<Sprite>("Sprite").RegionRect.Size.x;
+                var ballX = Position.x;
+                var playerX = body.Position.x;
+                var offsetX = ballX - playerX;
+                var ratio = offsetX / paddleLength;
+
+                LinearVelocity = new Vector2(LinearVelocity.y * ratio * -1, LinearVelocity.y);
+            }
         }
 
         // Check if in reset state so we can disable physics
