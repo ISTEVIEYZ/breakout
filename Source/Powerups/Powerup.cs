@@ -2,7 +2,6 @@ using Godot;
 
 public abstract class Powerup : RigidBody2D
 {
-
     protected Vector2 screenSize;
     protected bool isDropped = false;
 

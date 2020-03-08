@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/SpriteSheets/pokeman.png" type="Texture" id=1]
-[ext_resource path="res://Source/Ball/BallFire.cs" type="Script" id=2]
-[ext_resource path="res://Source/Ball/BallAnimation.cs" type="Script" id=3]
+[ext_resource path="res://Source/Ball/BallNormal/BallNormal.cs" type="Script" id=2]
+[ext_resource path="res://Source/Ball/BallNormal/BallNormalAnimation.cs" type="Script" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -88,14 +88,17 @@ animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "default",
-"speed": 100.0
+"speed": 15.0
 } ]
 
 [sub_resource type="CircleShape2D" id=18]
 radius = 16.0
 
-[node name="BallFire" type="RigidBody2D"]
+[node name="BallNormal" type="RigidBody2D" groups=[
+"Ball",
+]]
 collision_layer = 4
+collision_mask = 9
 mode = 2
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
@@ -104,6 +107,9 @@ contact_monitor = true
 linear_damp = 0.0
 angular_damp = 0.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BallAnimation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.3, 0.3 )

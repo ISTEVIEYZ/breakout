@@ -10,12 +10,11 @@ public abstract class BallBase : RigidBody2D, Ball
     public void OnScreenExited()
     {
         QueueFree();
-        ((Game)GetParent()).BallCount--;
+        (GetParent() as Game).BallCount--;
     }
 
     protected void OnPlayerHit(Node2D node)
     {
-        // TODO: Touch this up
         var paddleLength = node.GetNode<Sprite>("Sprite").RegionRect.Size.x;
         var ballX = Position.x;
         var playerX = node.Position.x;

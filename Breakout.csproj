@@ -53,24 +53,25 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Ball\BallAnimation.cs" />
-    <Compile Include="Source\Ball\BallFire.cs" />
-    <Compile Include="Source\Ball\BallNormal.cs" />
+    <Compile Include="Source\Ball\BallFire\BallFire.cs" />
+    <Compile Include="Source\Ball\BallFire\BallFireAnimation.cs" />
     <Compile Include="Source\Ball\BallBase.cs" />
-    <Compile Include="Source\Brick\Types\BrickBomb.cs" />
-    <Compile Include="Source\Brick\Types\BrickMoveHorizontal.cs" />
-    <Compile Include="Source\Brick\Types\BrickTwoHit.cs" />
-    <Compile Include="Source\Brick\Types\BrickUnbreakable.cs" />
+    <Compile Include="Source\Ball\BallNormal\BallNormal.cs" />
+    <Compile Include="Source\Ball\BallNormal\BallNormalAnimation.cs" />
+    <Compile Include="Source\Brick\BrickMoveHorizontal\BrickMoveHorizontal.cs" />
+    <Compile Include="Source\Brick\BrickBomb\BrickBomb.cs" />
+    <Compile Include="Source\Brick\BrickTwoHit\BrickTwoHit.cs" />
     <Compile Include="Source\Game\Game.cs" />
     <Compile Include="Source\Game\GlobalSignals.cs" />
-    <Compile Include="Source\Levels\Level1\Level1BGAnimation.cs" />
+    <Compile Include="Source\Levels\Level1\Level1.cs" />
     <Compile Include="Source\Ball\Ball.cs" />
     <Compile Include="Source\Brick\Brick.cs" />
+    <Compile Include="Source\Levels\LevelBase.cs" />
     <Compile Include="Source\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Powerups\ExtraBall.cs" />
-    <Compile Include="Source\Powerups\Fireball.cs" />
     <Compile Include="Source\Powerups\Powerup.cs" />
+    <Compile Include="Source\Powerups\PowerupExtraBall\PowerupExtraBall.cs" />
+    <Compile Include="Source\Powerups\PowerupFireball\PowerupFireball.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

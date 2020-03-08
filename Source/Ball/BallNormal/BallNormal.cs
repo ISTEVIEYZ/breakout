@@ -3,7 +3,6 @@ using System;
 
 public class BallNormal : BallBase
 {
-
     private Vector2 screenSize;
     private KinematicBody2D player;
     private bool isReset = true;
@@ -12,6 +11,7 @@ public class BallNormal : BallBase
     public override void _Ready()
     {
         Connect("body_entered", this, "OnBodyEntered");
+
         player = GetParent().GetNode<KinematicBody2D>("Player");
         screenSize = GetViewport().Size;
         LinearVelocity = new Vector2(0, speed);
@@ -35,15 +35,13 @@ public class BallNormal : BallBase
         }
     }
 
-
-
     public override void OnBodyEntered(Node2D node)
     {
         if (node is Brick)
         {
             node.EmitSignal("Hit");
         }
-        
+
         if (node is Player)
         {
             this.OnPlayerHit(node);

@@ -9,8 +9,10 @@ public class Player : KinematicBody2D
 
     public override void _Ready()
     {
-        screenSize = GetViewport().Size;
         GetNode<Node>("/root/GlobalSignals").Connect("AddPowerUp", this, "AddPowerUp");
+
+        screenSize = GetViewport().Size;
+        Position = Position == Vector2.Zero ? new Vector2(screenSize.x / 2, screenSize.y - yOffset) : Position;
     }
 
     public override void _Process(float delta)
