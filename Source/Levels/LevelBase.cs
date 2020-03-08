@@ -8,7 +8,7 @@ public class LevelBase : Node
 
     public override void _Ready()
     {
-        GetNode<Node>("/root/GlobalSignals").Connect("GameLoaded", this, "Start");
+        GetNode<Node>("/root/Signals").Connect("GameLoaded", this, "Start");
     }
 
     private void Start()

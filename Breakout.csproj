@@ -62,7 +62,8 @@
     <Compile Include="Source\Brick\BrickBomb\BrickBomb.cs" />
     <Compile Include="Source\Brick\BrickTwoHit\BrickTwoHit.cs" />
     <Compile Include="Source\Game\Game.cs" />
-    <Compile Include="Source\Game\GlobalSignals.cs" />
+    <Compile Include="Source\Game\Signals.cs" />
+    <Compile Include="Source\Game\Startup.cs" />
     <Compile Include="Source\Levels\Level1\Level1.cs" />
     <Compile Include="Source\Ball\Ball.cs" />
     <Compile Include="Source\Brick\Brick.cs" />

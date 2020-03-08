@@ -22,7 +22,8 @@ config/icon="res://Assets/icon.png"
 
 [autoload]
 
-GlobalSignals="*res://Source/Game/GlobalSignals.cs"
+Signals="*res://Source/Game/Signals.cs"
+Startup="*res://Source/Game/Startup.cs"
 
 [display]
 
