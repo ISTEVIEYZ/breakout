@@ -56,6 +56,3 @@ public abstract class Powerup : RigidBody2D
         return this.GetType().Name;
     }
 }
-
-
-

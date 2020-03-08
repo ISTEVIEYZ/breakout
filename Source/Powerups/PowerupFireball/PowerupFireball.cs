@@ -12,14 +12,16 @@ public class PowerupFireball : Powerup
         {
             if (node is Ball && !(node is BallFire))
             {
-                // Increment ball count
-                gameNode.BallCount++;
-
                 // Replace old ball with fireball
                 var ballFire = scene.Instance();
-                var oldPosition = node.Position;
+                var oldBall = node as RigidBody2D;
+
                 gameNode.CallDeferred("add_child", ballFire);
-                ballFire.SetDeferred("Position", oldPosition);
+                ballFire.SetDeferred("Position", oldBall.Position);
+                ballFire.SetDeferred("LinearVelocity", oldBall.LinearVelocity);
+
+                // We need to increment count because calling QueueFree decrements it.
+                gameNode.BallCount++;
                 node.QueueFree();
             }
         }
